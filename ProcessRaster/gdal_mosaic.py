@@ -2,6 +2,7 @@ from osgeo import gdal
 import os
 import glob
 import math
+from tqdm import tqdm
 #获取影像的左上角和右下角坐标
 def GetExtent(in_fn):
     ds=gdal.Open(in_fn)
@@ -14,7 +15,7 @@ def GetExtent(in_fn):
     min_y=geotrans[3]+ysize*geotrans[5]
     ds=None
     return min_x,max_y,max_x,min_y
-path=r"F:\RasterDownload\dongtinghu_S1"
+path=r"F:\Liaodong\mosaic"
 os.chdir(path)
 
 #如果存在同名影像则先删除
@@ -52,7 +53,7 @@ out_band=out_ds.GetRasterBand(1)
 #定义仿射逆变换
 inv_geotrans=gdal.InvGeoTransform(geotrans)
 #开始逐渐写入
-for in_fn in in_files:
+for in_fn in tqdm(in_files):
     in_ds=gdal.Open(in_fn)
     in_gt=in_ds.GetGeoTransform()
     #仿射逆变换

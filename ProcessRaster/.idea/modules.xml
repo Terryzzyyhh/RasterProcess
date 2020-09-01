@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/GF3.iml" filepath="$PROJECT_DIR$/.idea/GF3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/RasterProcess.iml" filepath="$PROJECT_DIR$/.idea/RasterProcess.iml" />
     </modules>
   </component>
 </project>
